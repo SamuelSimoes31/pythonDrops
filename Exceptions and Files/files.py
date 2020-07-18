@@ -72,3 +72,41 @@ file = open("filename.txt", "r")
 for line in file:
   print(line)
 file.close() 
+
+# WRITING -----------------------------------------
+file = open("newfile.txt", "w")
+file.write("This has been written to a file")
+file.close()
+
+file = open("newfile.txt", "r")
+print(file.read())
+file.close()
+
+msg = "Hello world!"
+file = open("newfile.txt", "w")
+amount_written = file.write(msg)
+print(amount_written)
+file.close()
+
+# exceptions ----------------------------------------------------
+try:
+  f = open("filename2.txt")
+  print(f.read())
+except FileNotFoundError:
+  print("No such file or directory")
+finally:
+  try:
+    f.close()
+  except:
+    print("Can't close file")
+
+with open("filename.txt") as f:
+  print(f.read())
+
+try:
+  print(1)
+  assert 2 + 2 == 5
+except AssertionError:
+  print(3)
+except:
+  print(4)
